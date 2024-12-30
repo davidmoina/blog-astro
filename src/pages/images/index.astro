@@ -1,0 +1,71 @@
+---
+import MainLayout from "@/layouts/MainLayout.astro";
+import { Image, Picture } from "astro:assets";
+
+import post05Img from "@/assets/images/post-05.png";
+---
+
+<MainLayout title="Imágenes">
+  <h1 class="text-5xl text-white">Imágenes</h1>
+
+  <img
+    loading="eager"
+    src="/assets/images/post-05.png"
+    alt="Explorando Funciones de ES6"
+    width="300"
+    height="300"
+  />
+
+  <h1>Quality low</h1>
+  <Image
+    src={post05Img}
+    alt="Explorando Funciones de ES6"
+    width="300"
+    height="300"
+    quality="low"
+  />
+  <h1>Quality high</h1>
+  <Image
+    src={post05Img}
+    alt="Explorando Funciones de ES6"
+    width="300"
+    height="300"
+    quality="high"
+  />
+
+  <h1>Formato</h1>
+  <Image
+    src={post05Img}
+    alt="Explorando Funciones de ES6"
+    width="300"
+    height="300"
+    format="avif"
+  />
+
+  <h1>Picture</h1>
+  <!-- formats={["avif", "webp", "jpeg"]} -->
+  <!-- widths={[240, 540, 720, post05Img.width]}
+  sizes={`(max-width: 360px) 240px, (max-width: 720px) 540px, (max-width: 1600px) 720px, ${post05Img.width}px`} -->
+  <Picture
+    src={post05Img}
+    alt="Explorando Funciones de ES6"
+    width={post05Img.width / 2}
+    densities={[1.5, 2]}
+  />
+
+  <div class="h-[3000px]"></div>
+
+  <img
+    loading="lazy"
+    src="/assets/images/post-05.png"
+    alt="Explorando Funciones de ES6"
+    width="300"
+    height="300"
+  />
+</MainLayout>
+
+<style>
+  h1 {
+    @apply text-3xl text-white my-5;
+  }
+</style>
